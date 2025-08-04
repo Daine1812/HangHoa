@@ -33,6 +33,13 @@
     select {
       padding: 4px;
     }
+    #output {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
@@ -81,14 +88,45 @@
       <td><input type="number" value="0" min="0"></td>
     </tr>
   </table>
+
+  <button onclick="saveData()">Lưu dữ liệu</button>
+  <pre id="output"></pre>
+
   <script>
     function updateDateTime() {
       const now = new Date();
       const dateTimeString = now.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
       document.getElementById('dateTime').textContent = dateTimeString;
     }
-    updateDateTime(); // Cập nhật ngay khi tải trang
-    setInterval(updateDateTime, 1000); // Cập nhật mỗi giây
+
+    function saveData() {
+      const rows = document.querySelectorAll("table tr");
+      let result = [];
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].querySelectorAll("td");
+        if (cells.length < 5) continue;
+
+        const stt = cells[0].textContent.trim();
+        const rau = cells[1].textContent.trim();
+        const doSong = cells[2].textContent.trim();
+        const tinhTrang = cells[3].querySelector("select").value;
+        const soLuong = cells[4].querySelector("input").value;
+
+        result.push({
+          STT: stt,
+          Rau: rau,
+          "Đồ sống": doSong,
+          "Tình trạng": tinhTrang,
+          "Số lượng": soLuong
+        });
+      }
+
+      document.getElementById("output").textContent = JSON.stringify(result, null, 2);
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
   </script>
 </body>
 </html>
