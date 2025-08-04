@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Hàng Hóa</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    @media (max-width: 600px) {
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 6px;
+      }
+    }
+    input {
+      width: 60px;
+      padding: 4px;
+    }
+    select {
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>HÀNG HÓA <span id="dateTime"></span></h2>
+  <table>
+    <tr>
+      <th>STT</th>
+      <th>Rau</th>
+      <th>Đồ Sống</th>
+      <th>Tình Trạng</th>
+      <th>Số Lượng</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Tím</td>
+      <td>Bò</td>
+      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Ngò</td>
+      <td>Bít</td>
+      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Xà lách</td>
+      <td>Nem chả pate</td>
+      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Hành tây</td>
+      <td>Xúc xích</td>
+      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Đậu bắp + nấm</td>
+      <td></td>
+      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+  </table>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const dateTimeString = now.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      document.getElementById('dateTime').textContent = dateTimeString;
+    }
+    updateDateTime(); // Cập nhật ngay khi tải trang
+    setInterval(updateDateTime, 1000); // Cập nhật mỗi giây
+  </script>
+</body>
+</html>
