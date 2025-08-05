@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danh Sách Hàng Hóa</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
     }
-
     th, td {
       border: 1px solid black;
       padding: 8px;
       text-align: left;
     }
-
     th {
       background-color: #f2f2f2;
     }
-
+    @media (max-width: 600px) {
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 6px;
+      }
+    }
     input, select {
       padding: 4px;
     }
-
     input[type="text"] {
-      width: 100%;
-      box-sizing: border-box;
+      width: 100px;
     }
-
     #output {
       background: #f9f9f9;
       border: 1px solid #ccc;
@@ -41,102 +39,134 @@
       margin-top: 20px;
       white-space: pre-wrap;
     }
-
-    /* Responsive dạng dọc trên điện thoại */
-    @media (max-width: 768px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        background-color: #fff;
-      }
-
-      td {
-        border: none;
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-      }
-
-      td::before {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        width: 45%;
-        white-space: nowrap;
-        font-weight: bold;
-      }
-
-      td:nth-child(1)::before { content: "STT"; }
-      td:nth-child(2)::before { content: "Rau"; }
-      td:nth-child(3)::before { content: "SL Rau"; }
-      td:nth-child(4)::before { content: "Đồ Sống"; }
-      td:nth-child(5)::before { content: "SL Đồ Sống"; }
-      td:nth-child(6)::before { content: "Nước Ngọt"; }
-      td:nth-child(7)::before { content: "SL Nước Ngọt"; }
-      td:nth-child(8)::before { content: "Tình Trạng"; }
-    }
   </style>
 </head>
 <body>
   <h2>HÀNG HÓA <span id="dateTime"></span></h2>
 
   <table>
-    <thead>
-      <tr>
-        <th>STT</th>
-        <th>Rau</th>
-        <th>SL Rau</th>
-        <th>Đồ Sống</th>
-        <th>SL Đồ Sống</th>
-        <th>Nước Ngọt</th>
-        <th>SL Nước Ngọt</th>
-        <th>Tình Trạng</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Tím</td>
-        <td><input type="text" /></td>
-        <td>Bò</td>
-        <td><input type="text" /></td>
-        <td>Pepsi</td>
-        <td><input type="text" /></td>
-        <td>
-          <select>
-            <option>Còn</option>
-            <option>Sắp hết</option>
-            <option>Hết</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Ngò</td>
-        <td><input type="text" /></td>
-        <td>Bít</td>
-        <td><input type="text" /></td>
-        <td>Coca</td>
-        <td><input type="text" /></td>
-        <td>
-          <select>
-            <option>Còn</option>
-            <option>Sắp hết</option>
-            <option>Hết</option>
-          </select>
-        </td>
-      </tr>
-      <!-- Thêm các dòng khác giống như trên nếu cần -->
-    </tbody>
+    <tr>
+      <th>STT</th>
+      <th>Rau</th>
+      <th>SL Rau</th>
+      <th>Đồ Sống</th>
+      <th>SL Đồ Sống</th>
+      <th>Nước Ngọt Lon</th>
+      <th>SL Nước Ngọt</th>
+      <th>Tình Trạng</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Tím</td>
+      <td><input type="text" value=""></td>
+      <td>Bò</td>
+      <td><input type="text" value=""></td>
+      <td>Pepsi</td>
+      <td><input type="text" value=""></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Ngò</td>
+      <td><input type="text" value=""></td>
+      <td>Bít</td>
+      <td><input type="text" value=""></td>
+      <td>Coca</td>
+      <td><input type="text" value=""></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Xà lách</td>
+      <td><input type="text" value=""></td>
+      <td>Nem chả pate</td>
+      <td><input type="text" value=""></td>
+      <td>7up</td>
+      <td><input type="text" value=""></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Hành tây</td>
+      <td><input type="text" value=""></td>
+      <td>Xúc xích</td>
+      <td><input type="text" value=""></td>
+      <td>Nước suối</td>
+      <td><input type="text" value=""></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Đậu bắp + nấm</td>
+      <td><input type="text" value=""></td>
+      <td>Hàu</td>
+      <td><input type="text" value=""></td>
+      <td>Sting</td>
+      <td><input type="text" value=""></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td></td>
+      <td></td>
+      <td>Bào ngư</td>
+      <td><input type="text" value=""></td>
+      <td></td>
+      <td></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td></td>
+      <td></td>
+      <td>Bạch tuộc</td>
+      <td><input type="text" value=""></td>
+      <td></td>
+      <td></td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+    </tr>
   </table>
 
   <button onclick="saveData()">Lưu dữ liệu</button>
@@ -150,23 +180,33 @@
     }
 
     function saveData() {
-      const rows = document.querySelectorAll("table tbody tr");
+      const rows = document.querySelectorAll("table tr");
       let result = [];
 
-      rows.forEach(row => {
-        const cells = row.querySelectorAll("td");
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].querySelectorAll("td");
+        if (cells.length < 8) continue;
+
+        const stt = cells[0].textContent.trim();
+        const rau = cells[1].textContent.trim();
+        const slRau = cells[2].querySelector("input")?.value || '';
+        const doSong = cells[3].textContent.trim();
+        const slDoSong = cells[4].querySelector("input")?.value || '';
+        const nuocNgot = cells[5].textContent.trim();
+        const slNuocNgot = cells[6].querySelector("input")?.value || '';
+        const tinhTrang = cells[7].querySelector("select").value;
 
         result.push({
-          STT: cells[0].textContent.trim(),
-          Rau: cells[1].textContent.trim(),
-          "SL Rau": cells[2].querySelector("input")?.value || '',
-          "Đồ Sống": cells[3].textContent.trim(),
-          "SL Đồ Sống": cells[4].querySelector("input")?.value || '',
-          "Nước Ngọt": cells[5].textContent.trim(),
-          "SL Nước Ngọt": cells[6].querySelector("input")?.value || '',
-          "Tình Trạng": cells[7].querySelector("select")?.value || ''
+          STT: stt,
+          Rau: rau,
+          "SL Rau": slRau,
+          "Đồ Sống": doSong,
+          "SL Đồ Sống": slDoSong,
+          "Nước Ngọt Lon": nuocNgot,
+          "SL Nước Ngọt": slNuocNgot,
+          "Tình Trạng": tinhTrang
         });
-      });
+      }
 
       document.getElementById("output").textContent = JSON.stringify(result, null, 2);
     }
