@@ -26,12 +26,11 @@
         padding: 6px;
       }
     }
-    input {
-      width: 60px;
+    input, select {
       padding: 4px;
     }
-    select {
-      padding: 4px;
+    input[type="number"] {
+      width: 60px;
     }
     #output {
       background: #f9f9f9;
@@ -49,6 +48,7 @@
       <th>STT</th>
       <th>Rau</th>
       <th>Đồ Sống</th>
+      <th>Nước Ngọt Lon</th>
       <th>Tình Trạng</th>
       <th>Số Lượng</th>
     </tr>
@@ -56,35 +56,98 @@
       <td>1</td>
       <td>Tím</td>
       <td>Bò</td>
-      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td>Pepsi</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
       <td><input type="number" value="0" min="0"></td>
     </tr>
     <tr>
       <td>2</td>
       <td>Ngò</td>
       <td>Bít</td>
-      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td>Coca</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
       <td><input type="number" value="0" min="0"></td>
     </tr>
     <tr>
       <td>3</td>
       <td>Xà lách</td>
       <td>Nem chả pate</td>
-      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td>7up</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
       <td><input type="number" value="0" min="0"></td>
     </tr>
     <tr>
       <td>4</td>
       <td>Hành tây</td>
       <td>Xúc xích</td>
-      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td>Nước suối</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
       <td><input type="number" value="0" min="0"></td>
     </tr>
     <tr>
       <td>5</td>
       <td>Đậu bắp + nấm</td>
+      <td>Hàu</td>
+      <td>Pepsi</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>6</td>
       <td></td>
-      <td><select><option>Còn</option><option>Hết</option></select></td>
+      <td>Bào ngư</td>
+      <td>Coca</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
+      <td><input type="number" value="0" min="0"></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td></td>
+      <td>Bạch tuộc</td>
+      <td>7up</td>
+      <td>
+        <select>
+          <option>Còn</option>
+          <option>Sắp hết</option>
+          <option>Hết</option>
+        </select>
+      </td>
       <td><input type="number" value="0" min="0"></td>
     </tr>
   </table>
@@ -105,18 +168,20 @@
 
       for (let i = 1; i < rows.length; i++) {
         const cells = rows[i].querySelectorAll("td");
-        if (cells.length < 5) continue;
+        if (cells.length < 6) continue;
 
         const stt = cells[0].textContent.trim();
         const rau = cells[1].textContent.trim();
         const doSong = cells[2].textContent.trim();
-        const tinhTrang = cells[3].querySelector("select").value;
-        const soLuong = cells[4].querySelector("input").value;
+        const nuocNgot = cells[3].textContent.trim();
+        const tinhTrang = cells[4].querySelector("select").value;
+        const soLuong = cells[5].querySelector("input").value;
 
         result.push({
           STT: stt,
           Rau: rau,
           "Đồ sống": doSong,
+          "Nước ngọt lon": nuocNgot,
           "Tình trạng": tinhTrang,
           "Số lượng": soLuong
         });
